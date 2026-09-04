@@ -14,6 +14,8 @@
  * @package DionesRamos\MovieShowcase
  */
 
+declare(strict_types=1);
+
 namespace DionesRamos\MovieShowcase;
 
 defined('ABSPATH') || exit;
