@@ -1,0 +1,184 @@
+/**
+ * Movie Search block styles.
+ *
+ * Loaded both on the front-end and in the editor ("style" field of
+ * block.json). No fixed brand colors: theme variables take precedence
+ * whenever they exist, so the block fits into any theme.
+ */
+
+.movie-showcase {
+	--movie-showcase-gap: 1rem;
+	--movie-showcase-radius: 8px;
+	--movie-showcase-border: color-mix(in srgb, currentColor 15%, transparent);
+	--movie-showcase-accent: #2563eb;
+	--movie-showcase-accent-contrast: #fff;
+}
+
+.movie-showcase__heading {
+	margin-block-end: var(--movie-showcase-gap);
+}
+
+.movie-showcase__label {
+	display: block;
+	font-weight: 600;
+	margin-block-end: 0.35rem;
+}
+
+.movie-showcase__controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.movie-showcase__input {
+	flex: 1 1 16rem;
+	min-width: 0;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(--movie-showcase-border);
+	border-radius: var(--movie-showcase-radius);
+	font: inherit;
+}
+
+.movie-showcase__input:focus {
+	border-color: var(--movie-showcase-accent);
+	outline: 2px solid var(--movie-showcase-accent);
+	outline-offset: -1px;
+}
+
+.movie-showcase__submit {
+	padding: 0.5rem 1.25rem;
+	border: 1px solid var(--movie-showcase-accent);
+	border-radius: var(--movie-showcase-radius);
+	background: var(--movie-showcase-accent);
+	color: var(--movie-showcase-accent-contrast);
+	font: inherit;
+	cursor: pointer;
+}
+
+.movie-showcase__submit:hover {
+	background: color-mix(in srgb, var(--movie-showcase-accent) 85%, white);
+	border-color: color-mix(in srgb, var(--movie-showcase-accent) 85%, white);
+}
+
+.movie-showcase__results {
+	margin-block-start: calc(var(--movie-showcase-gap) * 1.5);
+}
+
+.movie-showcase__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+	gap: var(--movie-showcase-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.movie-showcase__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.75rem;
+	border: 1px solid var(--movie-showcase-border);
+	border-radius: var(--movie-showcase-radius);
+}
+
+.movie-showcase__poster,
+.movie-showcase__details-poster {
+	width: 100%;
+	height: auto;
+	border-radius: calc(var(--movie-showcase-radius) / 2);
+	aspect-ratio: 2 / 3;
+	object-fit: cover;
+}
+
+.movie-showcase__card-title,
+.movie-showcase__details-title {
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.3;
+}
+
+.movie-showcase__card-year {
+	margin: 0;
+	opacity: 0.7;
+	font-size: 0.9rem;
+}
+
+.movie-showcase__details-button {
+	margin-block-start: auto;
+	padding: 0.4rem 0.75rem;
+	border: 1px solid var(--movie-showcase-border);
+	border-radius: var(--movie-showcase-radius);
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+.movie-showcase__details-button:hover,
+.movie-showcase__back-button:hover {
+	border-color: var(--movie-showcase-accent);
+	color: var(--movie-showcase-accent);
+}
+
+.movie-showcase__back-button {
+	margin-block-end: 0.75rem;
+	padding: 0.4rem 0.75rem;
+	border: 1px solid var(--movie-showcase-border);
+	border-radius: var(--movie-showcase-radius);
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+.movie-showcase__details {
+	display: grid;
+	grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+	gap: calc(var(--movie-showcase-gap) * 1.5);
+	align-items: start;
+}
+
+@media (max-width: 600px) {
+	.movie-showcase__details {
+		grid-template-columns: 1fr;
+	}
+}
+
+.movie-showcase__plot {
+	margin-block: 0.75rem;
+}
+
+.movie-showcase__meta {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.25rem 1rem;
+	margin: 0;
+}
+
+.movie-showcase__meta dt {
+	font-weight: 600;
+	opacity: 0.75;
+}
+
+.movie-showcase__meta dd {
+	margin: 0;
+}
+
+.movie-showcase__empty,
+.movie-showcase__loading,
+.movie-showcase__noscript {
+	opacity: 0.75;
+	font-style: italic;
+}
+
+.movie-showcase__error {
+	opacity: 0.85;
+	font-style: italic;
+}
+
+.movie-showcase-editor .movie-showcase__input[disabled],
+.movie-showcase-editor .movie-showcase__submit[disabled] {
+	cursor: default;
+	opacity: 0.9;
+}

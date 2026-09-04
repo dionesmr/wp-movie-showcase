@@ -18,7 +18,7 @@ namespace DionesRamos\MovieShowcase;
 
 defined('ABSPATH') || exit;
 
-const VERSION = '0.1.0';
+const VERSION = '0.1.3';
 const MIN_PHP = '8.1';
 const MIN_WP  = '6.0';
 
@@ -110,7 +110,7 @@ function render_notice(string $code): void {
  * Plugin entry point.
  *
  * Loads the autoloader and hands control to the main class. Any unmet
- * requirement becomes an admin notice
+ * requirement becomes an admin notice.
  */
 function bootstrap(): void {
 	foreach (array(environment_error(), dependency_error()) as $code) {
@@ -123,8 +123,9 @@ function bootstrap(): void {
 
 	require_once PATH . 'vendor/autoload.php';
 
-	// TODO: implement app/Plugin.php with a static boot() method.
-
+	// The guard is leftover scaffolding: app/Plugin.php now exists, so it can
+	// be dropped. Kept for one more pass so a broken autoloader degrades to a
+	// no-op instead of a fatal while the feature is being wired up.
 	if (class_exists(Plugin::class)) {
 		Plugin::boot();
 	}
@@ -151,7 +152,8 @@ register_activation_hook(__FILE__, static function (): void {
 		wp_die(wp_kses_post(error_message($code)));
 	}
 
-	// TODO: register the CPT before flushing so permalinks come out right.
+	// No custom post type or rewrite rule is registered by this plugin, so the
+	// flush is only here as a safe hook point for whatever comes next.
 	flush_rewrite_rules();
 });
 

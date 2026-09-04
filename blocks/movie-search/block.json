@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "movie-showcase/movie-search",
+  "version": "0.1.0",
+  "title": "Movie Search",
+  "category": "widgets",
+  "icon": "video-alt2",
+  "description": "Lets visitors search the OMDb catalogue by title and read the movie details.",
+  "textdomain": "wp-movie-showcase",
+  "keywords": ["movie", "film", "omdb", "search"],
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "text": true,
+      "background": true
+    }
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "movie-showcase-editor",
+  "viewScript": "movie-showcase-view",
+  "style": "movie-showcase-style"
+}
