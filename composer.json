@@ -1,0 +1,23 @@
+{
+  "name": "dionesmr/wp-movie-showcase",
+  "description": "Movie catalogue and showcase for WordPress",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Diones Menqui Ramos",
+      "homepage": "https://www.linkedin.com/in/diones-ramos-6a0616128/"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "DionesRamos\\MovieShowcase\\": "app/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
